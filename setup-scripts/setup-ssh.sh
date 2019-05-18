@@ -1,4 +1,6 @@
 #! /bin/bash
+set -e
+
 mkdir ~/.ssh
 chmod -R 700 ~/.ssh
 touch ~/.ssh/authorized_keys

@@ -1,4 +1,6 @@
 #! /bin/bash
+set -e
+
 sudo adduser deploy
 sudo usermod -aG sudo deploy
 echo "Copy and paste this snippet 'deploy ALL=(ALL) NOPASSWD:ALL' in the file about to be opend"
