@@ -1,5 +1,16 @@
 #! /bin/bash
-# set -e
+set -e
+
+echo "========================================================="
+echo "                       IMPORTANT"
+echo "========================================================="
+echo "Ensure udp ports 500 and 4500 are open in your firewall"
+echo "Ensure these are set in /etc/sysctl.conf and reload sysctl with `sudo sysctl -p`"
+echo "net.ipv4.ip_forward=1"
+echo "net.ipv4.conf.default.accept_redirects=0"
+echo "net.ipv4.conf.all.accept_redirects = 0"
+echo "net.ipv4.conf.default.send_redirects=0"
+echo "net.ipv4.conf.all.send_redirects = 0"
 
 sudo apt-get install -y git
 pushd ~
@@ -14,18 +25,6 @@ cd libreswan
 git checkout v3.21
 git checkout -b v3.21
 make programs || echo ""
-
-echo "========================================================="
-echo "                       IMPORTANT"
-echo "========================================================="
-echo "Ensure udp ports 500 and 4500 are open in your firewall"
-echo "Ensure these are set in /etc/sysctl.conf and reload sysctl with `sudo sysctl -p`"
-echo "net.ipv4.ip_forward=1"
-echo "net.ipv4.conf.default.accept_redirects=0"
-echo "net.ipv4.conf.all.accept_redirects = 0"
-echo "net.ipv4.conf.default.send_redirects=0"
-echo "net.ipv4.conf.all.send_redirects = 0"
-
 sudo make install
 sudo systemctl enable ipsec.service
 sudo systemctl start ipsec.service
