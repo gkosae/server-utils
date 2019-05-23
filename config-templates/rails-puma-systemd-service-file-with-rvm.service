@@ -1,0 +1,18 @@
+[Unit]
+Description=Rails App Puma
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+Environment=RAILS_ENV=production
+WorkingDirectory=/home/deploy/apps/rails-app/current
+ExecStart=/home/deploy/.rvm/bin/rvm 2.4.1 do /home/deploy/apps/rails-app/current/bin/bundle exec puma -C /home/deploy/apps/rails-app/current/config/puma.rb
+ExecStop=/home/deploy/.rvm/bin/rvm 2.4.1 do /home/deploy/apps/rails-app/current/bin/bundle exec pumactl -F /home/deploy/apps/rails-app/current/config/puma.rb stop
+ExecReload=/home/deploy/.rvm/bin/rvm 2.4.1 do /home/deploy/apps/rails-app/current/bin/bundle exec pumactl -F /home/deploy/apps/rails-app/current/config/puma.rb -S /home/deploy/apps/rails-app/shared/tmp/pids/puma.state phased-restart
+TimeoutSec=15
+Restart=always
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
