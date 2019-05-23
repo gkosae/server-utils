@@ -13,7 +13,7 @@ sudo apt-get install -y libnss3-dev libnspr4-dev pkg-config libpam-dev \
 cd libreswan
 git checkout v3.21
 git checkout -b v3.21
-make programs
+make programs || echo ""
 
 echo "========================================================="
 echo "                       IMPORTANT"
