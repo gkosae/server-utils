@@ -1,5 +1,5 @@
 #! /bin/bash
-set -e
+# set -e
 
 sudo apt-get install -y git
 pushd ~
@@ -14,9 +14,6 @@ cd libreswan
 git checkout v3.21
 git checkout -b v3.21
 make programs
-sudo make install
-systemctl enable ipsec.service
-systemctl start ipsec.service
 
 echo "========================================================="
 echo "                       IMPORTANT"
@@ -28,4 +25,8 @@ echo "net.ipv4.conf.default.accept_redirects=0"
 echo "net.ipv4.conf.all.accept_redirects = 0"
 echo "net.ipv4.conf.default.send_redirects=0"
 echo "net.ipv4.conf.all.send_redirects = 0"
+
+sudo make install
+systemctl enable ipsec.service
+systemctl start ipsec.service
 popd
