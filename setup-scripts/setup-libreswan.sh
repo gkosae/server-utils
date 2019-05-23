@@ -27,6 +27,6 @@ echo "net.ipv4.conf.default.send_redirects=0"
 echo "net.ipv4.conf.all.send_redirects = 0"
 
 sudo make install
-systemctl enable ipsec.service
-systemctl start ipsec.service
+sudo systemctl enable ipsec.service
+sudo systemctl start ipsec.service
 popd
