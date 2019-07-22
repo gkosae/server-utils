@@ -13,6 +13,7 @@ echo "net.ipv4.conf.default.send_redirects=0"
 echo "net.ipv4.conf.all.send_redirects = 0"
 
 sudo apt-get install -y git
+sudo rm -rf ~/libreswan
 pushd ~
 git clone https://github.com/libreswan/libreswan.git
 sudo apt-get install -y libnss3-dev libnspr4-dev pkg-config libpam-dev \
