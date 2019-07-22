@@ -22,8 +22,8 @@ sudo apt-get install -y libnss3-dev libnspr4-dev pkg-config libpam-dev \
                 libsystemd-dev
 
 cd libreswan
-git checkout v3.21
-git checkout -b v3.21
+git checkout v3.20
+git checkout -b v3.20
 make programs || echo ""
 sudo make install
 sudo systemctl enable ipsec.service
