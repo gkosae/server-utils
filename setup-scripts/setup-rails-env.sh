@@ -3,7 +3,7 @@ set -e
 
 RUBY_VERSION=${1:-2.4.1}
 
-sudo apt-get install nodejs \
+sudo apt-get install -y nodejs \
   nginx \
   redis-server \
   software-properties-common \
