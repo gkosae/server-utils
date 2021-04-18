@@ -12,7 +12,7 @@ sudo apt-get install -y nodejs \
   libpq-dev \
   libxml2-dev \
   libxslt-dev \
-  libjemalloc1 \
+  libjemalloc2 \
   libjemalloc-dev
 
 
