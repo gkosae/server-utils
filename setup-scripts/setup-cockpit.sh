@@ -6,7 +6,7 @@ sudo apt install -t ${VERSION_CODENAME}-backports cockpit -y
 sudo systemctl enable --now cockpit.socket
 
 # COCKPIT PCP
-sudo apt install cockpit-pcp
+sudo apt install cockpit-pcp -y
 
 # COCKPIT NAVIGATOR
 sudo apt install -y gdebi
