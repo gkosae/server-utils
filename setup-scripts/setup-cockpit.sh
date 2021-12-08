@@ -5,6 +5,9 @@ set -e
 sudo apt install -t ${VERSION_CODENAME}-backports cockpit -y
 sudo systemctl enable --now cockpit.socket
 
+# COCKPIT PCP
+sudo apt install cockpit-pcp
+
 # COCKPIT NAVIGATOR
 sudo apt install -y gdebi
 wget https://github.com/45Drives/cockpit-navigator/releases/download/v0.5.8/cockpit-navigator_0.5.8-1focal_all.deb
