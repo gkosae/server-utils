@@ -3,7 +3,7 @@ set -e
 
 . /etc/os-release
 sudo apt install -t ${VERSION_CODENAME}-backports cockpit -y
-systemctl enable --now cockpit.socket
+sudo systemctl enable --now cockpit.socket
 
 # COCKPIT NAVIGATOR
 sudo apt install -y gdebi
