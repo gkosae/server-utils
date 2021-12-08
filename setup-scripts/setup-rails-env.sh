@@ -23,6 +23,10 @@ echo progress-bar >> ~/.curlrc
 # hkp://pool.sks-keyservers.net (Failing)
 # gpg --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://rvm.io/mpapis.asc | gpg --import - # Keyservers failing so install directly from webservers. Less secure
+curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
+echo 409B6B1796C275462A1703113804BB82D39DC0E3:6: | gpg2 --import-ownertrust # mpapis@gmail.com
+echo 7D2BAF1CF37B13E2069D6956105BD0E739499BDB:6: | gpg2 --import-ownertrust # piotr.kuczynski@gmail.com
+
 \curl -sSL https://get.rvm.io | bash -s stable --with-gems="hirb"
 
 
