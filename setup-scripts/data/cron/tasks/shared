@@ -1,0 +1,8 @@
+SCRIPT_FILENAME=$(basename "$0")
+LOG_FILE=/root/cron/logs/${SCRIPT_FILENAME}.log
+
+function run() {
+	local command=$1
+	echo $(date) > $LOG_FILE
+	eval $command >> $LOG_FILE
+}

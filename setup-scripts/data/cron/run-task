@@ -1,0 +1,6 @@
+#!/bin/sh
+
+CRON_ENV="/root/cron/env"
+
+. "$CRON_ENV"
+exec /usr/bin/env -i "$SHELL" -c ". $CRON_ENV; /root/cron/tasks/$1"

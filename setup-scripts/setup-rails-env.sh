@@ -1,9 +1,11 @@
 #! /bin/bash
 set -e
 
-RUBY_VERSION=${1:-2.4.1}
+RUBY_VERSION=${1:-2.7.1}
 
 sudo apt-get install -y nodejs \
+  libtag1-dev \
+  python2 \
   gnupg2 \
   nginx \
   redis-server \

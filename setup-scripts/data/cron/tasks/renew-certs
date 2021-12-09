@@ -1,0 +1,4 @@
+#! /bin/bash
+
+. /root/cron/tasks/shared
+run "certbot renew --pre-hook 'service nginx stop' --post-hook 'service nginx start'"

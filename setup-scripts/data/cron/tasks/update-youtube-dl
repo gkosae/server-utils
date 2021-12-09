@@ -1,0 +1,5 @@
+#! /bin/bash
+
+. /root/cron/tasks/shared
+# run "youtube-dl -U"
+run "echo 'Switched to yt-dlp'"

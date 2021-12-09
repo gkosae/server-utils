@@ -1,0 +1,25 @@
+#! /bin/bash
+
+. /root/cron/tasks/shared
+
+home="gkosae" # Change to your home dir
+
+function update_images() {
+	echo "Updating images"
+	docker images | grep -v ^REPO | sed 's/ \+/:/g' | cut -d: -f1,2 | xargs -L1 docker pull
+}
+
+function update_apps() {
+	local apps=$(cat /home/$home/apps/apps)
+	for app in $apps; do update_app $app; done
+}
+
+function update_app() {
+	local app=$1
+	echo "Updating $app"
+    docker stop $app
+	docker rm $app
+	/home/$home/apps/$app/run.sh
+}
+
+run "update_images && update_apps"
