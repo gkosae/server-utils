@@ -5,4 +5,4 @@
 home="gkosae"
 bucket="media-files"
 
-run "s3cmd -v -c /home/$home/.s3cfg sync --delete-removed /home/$home/Audio/ s3://${bucket}/Audio/"
+run "s3cmd -v -c /home/$home/.s3cfg sync --skip-existing --delete-removed /home/$home/Audio/ s3://${bucket}/Audio/"
