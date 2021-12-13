@@ -16,4 +16,5 @@ echo "0 0 * * * /root/cron/tasks/sync-audio-files"
 echo "################# END ######################"
 
 echo "Copy and paste this text above in the file about to be opened"
+read -n 1 -s -r -p "Press any key to open the file"
 sudo crontab -e
