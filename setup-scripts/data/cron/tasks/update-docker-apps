@@ -17,9 +17,10 @@ function update_apps() {
 function update_app() {
 	local app=$1
 	echo "Updating $app"
-    docker stop $app
+        docker stop $app
 	docker rm $app
 	/home/$home/apps/$app/run.sh
 }
 
 run "update_images && update_apps"
+run "docker image prune -f"
